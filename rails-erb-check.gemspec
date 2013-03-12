@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rails-erb-check}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["jugyo"]
@@ -29,6 +29,8 @@ Gem::Specification.new do |s|
     "VERSION",
     "bin/rails-erb-check",
     "lib/rails-erb-check.rb",
+    "lib/rails-erb-check/railtie.rb",
+    "tasks/rails-erb-check.rake",
     "spec/fixtures/invalid1.erb",
     "spec/fixtures/invalid2.erb",
     "spec/fixtures/valid1.erb",
