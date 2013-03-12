@@ -10,15 +10,14 @@ module RailsErbCheck
       relative_path = Pathname.new(file).relative_path_from(Rails.root)
     
       begin
-        ActionView::Template::Handlers::Erubis.new(File.read(file)).result
-        puts "#{relative_path}\e[34m => \e[32mvalid\e[0m"      
+        ActionView::Template::Handlers::Erubis.new(File.read(file)).result      
       rescue SyntaxError => ex
         puts "#{relative_path}\e[34m => \e[31minvalid\e[0m"
         puts ex
         
         success = false
       rescue Exception
-        puts "#{relative_path}\e[34m => \e[32mvalid\e[0m"
+        #This actually means it is ok
       end
     end
     
