@@ -1,8 +1,3 @@
-require 'rails-erb-check'
-require 'rails'
-
-require 'rails-erb-check'
-
 module RailsErbCheck
   class Railtie < Rails::Railtie
     railtie_name :rails_erb_check

@@ -11,15 +11,14 @@ module RailsErbCheck
     
       begin
         ActionView::Template::Handlers::Erubis.new(File.read(file)).result
-  
-        puts "#{relative_path}\e[34m => \e[32mvalid\e[0m"
+        puts "#{relative_path}\e[34m => \e[32mvalid\e[0m"      
       rescue SyntaxError => ex
         puts "#{relative_path}\e[34m => \e[31minvalid\e[0m"
         puts ex
         
         success = false
       rescue Exception
-        # Assume ok, exception caused because output fails, but parsing has succeeded
+        puts "#{relative_path}\e[34m => \e[32mvalid\e[0m"
       end
     end
     
