@@ -1,13 +1,28 @@
 require 'action_view'
 
 module RailsErbCheck
-  def self.valid_syntax?(erb)
-    begin
-      ActionView::Template::Handlers::Erubis.new(erb).result
-    rescue SyntaxError
-      return false
-    rescue Exception
-      return true
+  require 'rails_erb_check/railtie' if defined?(Rails)
+  
+  def self.check_files(file_paths)
+    success = true
+    
+    file_paths.each do |file|
+      relative_path = Pathname.new(file).relative_path_from(Rails.root)
+    
+      begin
+        ActionView::Template::Handlers::Erubis.new(File.read(file)).result
+  
+        puts "#{relative_path}\e[34m => \e[32mvalid\e[0m"
+      rescue SyntaxError => ex
+        puts "#{relative_path}\e[34m => \e[31minvalid\e[0m"
+        puts ex
+        
+        success = false
+      rescue Exception
+        # Assume ok, exception caused because output fails, but parsing has succeeded
+      end
     end
+    
+    success
   end
 end
