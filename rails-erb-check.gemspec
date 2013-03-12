@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
     "bin/rails-erb-check",
     "lib/rails-erb-check.rb",
     "lib/rails-erb-check/railtie.rb",
-    "tasks/rails-erb-check.rake",
+    "lib/tasks/rails-erb-check.rake",
     "spec/fixtures/invalid1.erb",
     "spec/fixtures/invalid2.erb",
     "spec/fixtures/valid1.erb",
