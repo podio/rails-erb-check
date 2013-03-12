@@ -21,6 +21,8 @@ module RailsErbCheck
       end
     end
     
+    puts "Checked #{file_paths.length} files"
+    
     success
   end
 end
