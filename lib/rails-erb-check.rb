@@ -1,7 +1,7 @@
 require 'action_view'
 
 module RailsErbCheck
-  require 'rails_erb_check/railtie' if defined?(Rails)
+  require 'rails-erb-check/railtie' if defined?(Rails)
   
   def self.check_files(file_paths)
     success = true
