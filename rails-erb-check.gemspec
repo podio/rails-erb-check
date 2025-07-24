@@ -55,14 +55,14 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<bundler>.freeze, [">= 0"])
       s.add_development_dependency(%q<jeweler>.freeze, [">= 0"])
     else
-      s.add_runtime_dependency(%q<actionpack>.freeze, [">= 6.0", "< 6.2"])
+      s.add_dependency(%q<actionpack>.freeze, [">= 6.0", "< 6.2"])
       s.add_dependency(%q<railties>.freeze, ["~> 6.0.0"])
       s.add_dependency(%q<rspec>.freeze, [">= 0"])
       s.add_dependency(%q<bundler>.freeze, [">= 0"])
       s.add_dependency(%q<jeweler>.freeze, [">= 0"])
     end
   else
-    s.add_runtime_dependency(%q<actionpack>.freeze, [">= 6.0", "< 6.2"])
+    s.add_dependency(%q<actionpack>.freeze, [">= 6.0", "< 6.2"])
     s.add_dependency(%q<railties>.freeze, ["~> 6.0.0"])
     s.add_dependency(%q<rspec>.freeze, [">= 0"])
     s.add_dependency(%q<bundler>.freeze, [">= 0"])
