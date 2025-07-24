@@ -120,10 +120,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack (~> 6.0.0)
+  actionpack (~> 6.0)
   bundler
   jeweler
-  railties (~> 6.0.0)
+  railties (~> 6.0)
   rspec
 
 BUNDLED WITH
