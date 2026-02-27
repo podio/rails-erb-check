@@ -37,14 +37,16 @@ pipeline {
                 BRIDGE_POLARIS_ASSESSMENT_TYPES = "SAST"
             }
             steps {
-                script {
-                    status = sh returnStatus: true, script: '''
-                        bridge-cli --stage polaris
-                    '''
-                    if (status == 8) {
-                        unstable 'Policy violation'
-                    } else if (status != 0) {
-                        error 'Bridge CLI failure'
+                dir('rails-erb-check') {
+                    script {
+                        status = sh returnStatus: true, script: '''
+                            bridge-cli --stage polaris
+                        '''
+                        if (status == 8) {
+                            unstable 'Policy violation'
+                        } else if (status != 0) {
+                            error 'Bridge CLI failure'
+                        }
                     }
                 }
             }
@@ -59,12 +61,14 @@ pipeline {
                 BRIDGE_DETECT_ARGS = "--detect.project.name=DX-Podio-rails-erb-check --detect.project.version.name=${env.branchName} --detect.project.version.update=true --detect.project.version.distribution=SAAS --detect.project.group.name=Podio-Podio"
             }
             steps {
-                script {
-                    status = sh returnStatus: true, script: '''
-                        bridge-cli --stage blackducksca
-                    '''
-                    if (status != 0) {
-                        error 'BlackDuck SCA Scan failed'
+                dir('rails-erb-check') {
+                    script {
+                        status = sh returnStatus: true, script: '''
+                            bridge-cli --stage blackducksca
+                        '''
+                        if (status != 0) {
+                            error 'BlackDuck SCA Scan failed'
+                        }
                     }
                 }
             }
